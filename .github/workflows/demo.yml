@@ -1,0 +1,20 @@
+name: Demo manual
+
+on:
+  workflow_dispatch:
+    inputs:
+      mensaje:
+        description: "Mensaje que queremos mostrar"
+        required: true
+        default: "Hola desde PontIA"
+        type: string
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar mensaje
+        env:
+          MENSAJE: ${{ inputs.mensaje }}
+        run: echo "$MENSAJE"
